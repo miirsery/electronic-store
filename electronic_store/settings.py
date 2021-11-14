@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     'user',
     'store',
+    'products'
 ]
 
 MIDDLEWARE = [
@@ -118,8 +119,6 @@ if DEBUG:
     )
 else:
     STATIC_ROOT = BASE_DIR / 'static'
-
-
 
 
 # Default primary key field type
