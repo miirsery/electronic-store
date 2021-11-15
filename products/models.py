@@ -5,7 +5,7 @@ from utils import upload_function
 
 class Category(models.Model):
     title = models.CharField(max_length=248)
-    description = models.TextField()
+    description = models.TextField(default='Описание появится позже')
     image = models.ImageField(blank=True, null=True)
 
     class Meta:
@@ -25,12 +25,15 @@ class ImageGallery(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=128)
     image = models.ImageField(upload_to=upload_function)
-    description = models.TextField()
-    price = models.PositiveIntegerField()
-    characteristic = models.TextField()
+    description = models.TextField(default='Описание появится позже')
+    price = models.DecimalField(
+        max_digits=9, decimal_places=2)
+    characteristic = models.TextField(default='Характеристики появятся позже')
+
+    recommendation = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return f'{self.id} | {self.title}'
