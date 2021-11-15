@@ -1,0 +1,169 @@
+.header
+    max-height: 10vh
+    margin-bottom: 60px
+    &__wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 20px 10px
+    &__logo
+        @extend %grishenko-opiyat-nbp
+        display: block
+        max-width: 8.5vw
+        text-transform: uppercase
+        color: #fff
+        font-size: 2rem
+    &-logo
+        max-width: 33%
+    &__menu
+        display: flex
+        justify-content: space-between
+        align-items: center
+        position: relative
+    &__menu-item
+        @extend %montserrat-regular
+        transition: all 0.3s
+    &__menu-item:active > &__menu-link
+        color: rgba(255, 255, 255, 1)
+
+    &__menu-link
+        @extend %montserrat-regular
+        font-weight: 500
+        transition: all .3s
+        color: rgba(255,255,255,.7)
+        display: block
+        position: relative
+        z-index: 10
+        padding: 2.3rem 3.7vw
+        margin: 0 -2rem
+        font-size: 1.2rem
+        backdrop-filter: blur(20px)
+    &__menu-marker
+        position: absolute
+        top: -0.8vh
+        left: 50%
+        transition: all 0.3s
+        opacity: 0
+        z-index: 1
+        &::before
+            content: ""
+            position: absolute
+            top: -0.4vh
+            left: 50%
+            transform: translateX(-50%)
+            width: 2vw
+            height: 2.8vh
+            transition: all 0.3s
+            border-radius: 4px
+            background: #5da6ff
+            box-shadow: 0 0 15px #5da6ff,0 0 30px #5da6ff, 0 0 45px #5da6ff, 0 0 60px #5da6ff
+
+    &__actions
+        display: flex
+        align-items: center
+        margin-left: 5.5rem
+        position: relative
+    &__actions-profile
+        max-width: 48px
+    &__actions-profile-img
+        max-width: 100%
+        pointer-events: none
+    &__actions-favorite,
+    &__actions-cart
+        display: block
+    &__actions-favorite
+        background-image: url('../images/heart.svg')
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+        width: 32px
+        height: 32px
+        display: block
+        opacity: 0.7
+        transition: all 0.25s
+        &:active
+            opacity: 1
+            transition: all 0.3s
+    &__menu-item:nth-child(1).active ~ &__menu-marker::before
+        background: #5da6ff
+        transition: all 0.3s
+        filter: blur(20px)
+        box-shadow: 0 0 15px #5da6ff,0 0 30px #5da6ff, 0 0 45px #5da6ff, 0 0 60px #5da6ff
+    &__menu-item:nth-child(2).active ~ &__menu-marker::before
+        background: #ff0
+        transition: all 0.3s
+        filter: blur(20px)
+        box-shadow: 0 0 15px #ff0,0 0 30px #ff0, 0 0 45px #ff0, 0 0 60px #ff0
+    &__menu-item:nth-child(3).active ~ &__menu-marker::before
+        background: #0f0
+        transition: all 0.3s
+        filter: blur(20px)
+        box-shadow: 0 0 15px #0f0,0 0 30px #0f0, 0 0 45px #0f0, 0 0 60px #0f0
+    &__menu-item:nth-child(4).active ~ &__menu-marker::before
+        background: rgba(245, 167, 255, 1)
+        transition: all 0.3s
+        filter: blur(20px)
+        box-shadow: 0 0 15px rgba(245, 167, 255, 1),0 0 30px rgba(245, 167, 255, 1), 0 0 45px rgba(245, 167, 255, 1), 0 0 60px rgba(245, 167, 255, 1)
+    &__actions-cart
+        background-image: url('../images/cart.svg')
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+        width: 32px
+        height: 32px
+
+    &__actions > a
+        @extend %montserrat-bold
+        display: block
+        position: relative
+        z-index: 11
+        color: #fff
+        margin-left: 2rem
+        cursor: pointer
+        opacity: 0.7
+        transition: opacity 0.5s
+        &:hover
+            opacity: 1
+            position: relative
+            filter: drop-shadow(0 0 15px #fff)
+
+.profile
+    &__menu
+        position: absolute
+        top: 0rem
+        right: -8vw
+        z-index: 10
+        border-radius: 10px
+        background-color: rgba(85, 80, 153, 0.6)
+        padding: 4.5rem 3rem 1.5rem 1.5rem
+        transition: all 0.5s
+        visibility: hidden
+        opacity: 0
+        transform: scale(0.4)
+        transform-origin: top left
+        &:before
+            content: ""
+            bottom: -5rem
+            right: -6.7rem
+            position: absolute
+            width: 7vw
+            height: 27vh
+            background-color: #332957
+            transform: rotate(35deg)
+        &.active
+            visibility: visible
+            opacity: 1
+            top: -0.9rem
+            right: -8vw
+            transform: scale(1)
+    &__item
+        margin-bottom: 2.5rem
+        text-align: left
+    &__item:first-child
+        margin-top: 0.5rem
+        margin-bottom: 5vh
+        padding-bottom: 0.5vh
+        border-bottom: 1px solid #ffffff50
+    &__item > a
+        @extend %montserrat-regular
+        font-size: 1.5rem
