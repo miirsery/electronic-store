@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 
+from cart.models import Cart
 from user.models import Customer
 
 
@@ -11,6 +12,9 @@ class CustomerMiddleware:
         if not request.user.is_authenticated:
             return self.get_response(request)
         customer = Customer.objects.get(user=request.user)
+        cart, _ = Cart.objects.get_or_create(owner=customer, in_order=False)
+
         request.customer = customer
+        request.cart = cart
 
         return self.get_response(request)
