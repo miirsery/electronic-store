@@ -1,0 +1,76 @@
+.authorization
+    max-width: 40vw
+    height: auto
+    margin: 0 auto
+    padding: 15px 0
+    background-color: rgba(0,0,0,.1)
+    box-shadow: -10px 10px 9px 5px rgba(0,0,0,.1)
+    &__form
+        display: block
+        width: 60%
+        margin: 0 auto
+        text-align: center
+    &__title
+        padding: 5vh 3vh 1.5vw 3vh
+    &__input
+        border: none
+        background-color: transparent
+        color: #fff
+        outline: none
+        font-size: 18px
+        width: 100%
+        padding: 10px 0 10px 12px
+        border-bottom: 1px solid #fff
+        margin-bottom: 10px
+        &::placeholder
+            color: #fff
+            font-size: 18px
+    &__data-password
+        position: relative
+
+    &__data-password-view,
+    &__data-password-view-hidden
+        position: absolute
+        right: 0
+        top: -48%
+        width: 30px
+        height: 40px
+        transform: translateY(50%)
+        cursor: pointer
+    &__data-password-view
+        background-image: url('../images/eye.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+
+    &__data-password-view-hidden
+        background-image: url('../images/eye-hidden.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+    &__forgot
+        text-align: center
+        @extend %montserrat-light
+        font-style: italic
+        font-size: 0.9rem
+        text-align: right
+        margin-bottom: 1.4vh
+        span
+            @extend %montserrat-regular
+            font-size: 0.8rem
+    &__submit
+        margin-bottom: 1vh
+        @extend %montserrat-bold
+        font-size: 1.1rem
+        line-height: 1.2rem
+        color: #fff
+        border: none
+        padding: 0.9rem 2rem
+        border-radius: 10px
+        background-color: rgba(29, 20, 72, .3)
+        margin-bottom: 2.5vh
+    &__nothaveaccount-text
+        margin-bottom: 1.25vh
+        @extend %montserrat-bold
+    &__register
+        font-size: 1.1rem

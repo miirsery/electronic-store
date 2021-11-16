@@ -1,0 +1,60 @@
+.suggestions
+    margin-top: 2rem
+    &__title
+        @extend %montserrat-regular
+        display: block
+        font-size: 20px
+        margin-bottom: 15px
+        font-size: 1.8rem
+
+    &__slider-img
+        width: 100%
+        border-radius: 10px
+
+.swiper
+    margin-top: 2rem
+    width: 100%
+    height: auto
+    position: relative
+    &-slide
+        text-align: center
+        font-size: 18px
+        background: #fff
+        display: -webkit-box
+        display: -ms-flexbox
+        display: -webkit-flex
+        display: flex
+        -webkit-box-pack: center
+        -ms-flex-pack: center
+        -webkit-justify-content: center
+        justify-content: center
+        -webkit-box-align: center
+        -ms-flex-align: center
+        -webkit-align-items: center
+        align-items: center
+    &-pagination
+        position: absolute
+        z-index: 12
+        bottom: 0
+        right: 50%
+        transform: translateX(50%)
+        display: flex
+        margin: 0 auto
+        justify-content: center
+        width: 100%
+        margin-top: 10px
+        padding: 5px 0
+        height: auto
+    &-pagination-bullet
+        margin-left: 1vw
+        
+        display: block
+        transition: all 0.5s
+    
+        height: 12px
+        width: 12px
+        background-color: #5da6ff
+        &-active
+            transition: all 0.5s
+            background-color: #5da6ff
+            filter: drop-shadow(0 0 5px #5da6ff)

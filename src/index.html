@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+
+<body>
+    @@include('./blocks/base/header/header.html')
+    <main class="main">
+        <div class="container">
+            <div class="main__content">
+                <div class="main__content-view">
+                    @@include('./blocks/base/aside/aside.html')
+                    <div class="main__center">
+                        <input type="text" class="main__center-search" placeholder="Поиск по сайту...">
+                        @@include('./blocks/main-view/main-slider/main-slider.html')
+                        @@include('./blocks/main-view/recomendations/recomendations.html')
+                        @@include('./blocks/main-view/location/location.html')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./scripts/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>
