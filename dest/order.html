@@ -30,7 +30,7 @@
             <div class="header__actions">
                 <a class="header__actions-favorite">
                 </a>
-                <a href="./cart.html" class="header__actions-cart"> </a>
+                <a href="./order.html" class="header__actions-cart"> </a>
                 <a class="header__actions-profile">
                     <img class="header__actions-profile-img" src="../images/profile.png" alt="profile">
                 </a>
@@ -71,27 +71,27 @@
                     <div class="order__items">
                         <div class="order__item-text-block">
                             <p class="order__item-text">Firstname</p>
-                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname">
+                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname" name="first_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Lastname</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname" name="last_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Phone</p>
-                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone">
+                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone" name="phone">
                         </div>
                         <div class="this-order">TIHS order FIELD</div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Address</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address" name="address">
                         </div>
                         <div class="order__item-status">Product in proccess</div>
                         <div class="order__item-buying-type">Delivery</div>
                         <p class="order__item-comment-title">
                             if you need, leave a comment, please)))
                         </p>
-                        <textarea class="order__item-comment" name="comment" id=""></textarea>
+                        <textarea class="order__item-comment" name="comment" id="" name="comment"></textarea>
                         <div class="order__item-date">
                             <p class="order__item-create">Created at: 21.11.2077</p>
                             <p class="order__item-delivery">Will be delivered: 21.11.2177</p>
@@ -103,80 +103,7 @@
         </div>
     </div>
 </div>
-    <footer class="footer">
-    <div class="container">
-        <div class="footer__blocks">
-            <div class="company__block">
-                <h5 class="footer__block-title">Company</h5>
-                <ul class="footer__block-menu">
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">About company</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">News</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">For partners</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #4</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #5</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #6</a>
-                    </il>
-                </ul>
-            </div>
-            <div class="company__block">
-                <h5 class="footer__block-title">For customes</h5>
-                <ul class="footer__block-menu">
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">How to pay</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Payment</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Credits</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Status</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #5</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #6</a>
-                    </il>
-                </ul>
-            </div>
-            <div class="company__block">
-                <ul class="footer__block-menu">
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">About company</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">News</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">For partners</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #4</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #5</a>
-                    </il>
-                    <il class="footer__block-item">
-                        <a href="" class="footer__block-link">Item #6</a>
-                    </il>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
 
