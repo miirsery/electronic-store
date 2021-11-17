@@ -38,7 +38,6 @@ document.addEventListener('click' , ({target: {id , tagName, className}}) => {
 //     //the module value for "helper/util".
 // });
 document.querySelector('.order__item-form').addEventListener('submit', (e) => {
-    console.log('OKEY')
     const formData = Object.fromEntries(new FormData(e.target).entries())
     handlerOrder(formData)
     e.preventDefault()
