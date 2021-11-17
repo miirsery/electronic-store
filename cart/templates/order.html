@@ -6,100 +6,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Order</title>
     <link rel="stylesheet" href="{% static 'style/main.css' %}">
 </head>
 
 <body>
-    <header class="header">
-    <div class="container">
-        <div class="header__wrapper">
-            <div class="header-logo">
-                <a href="#" class="header__logo">
-                    Я не придумал
-                </a>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__menu">
-                    <li class="header__menu-item"><a href="#" class="header__menu-link">Пункты выдачи</a></li>
-                    <li class="header__menu-item"><a href="#" class="header__menu-link">Магазины</a></li>
-                    <li class="header__menu-item"><a href="#" class="header__menu-link">Доставка</a></li>
-                    <li class="header__menu-item"><a href="#" class="header__menu-link">О нас</a></li>
-                    <div class="header__menu-marker"></div>
-                </ul>
-            </nav>
-            <div class="header__actions">
-                <a class="header__actions-favorite">
-                </a>
-                <a href="./order.html" class="header__actions-cart"> </a>
-                <a class="header__actions-profile">
-                    <img class="header__actions-profile-img" src="../images/profile.png" alt="profile">
-                </a>
-                <ul class="profile__menu">
-                    <li class="profile__item">
-                        <a href="#">Miirsery</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="./authorization.html">Авторизация</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="./registration.html">Регистрация</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="#">Уведомления</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="#">Мои заказы</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="#">Настройки</a>
-                    </li>
-                    <li class="profile__item">
-                        <a href="#">Выход</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
+    {% include 'include/header.html' %}
     <div class="container">
     <div class="order">
+        <h1 class="order__title">Order</h1>
         <div class="order__content">
-            <h1 class="order__title">Order</h1>
             <div class="order__items">
-                <h3 class="order__item-title">Miirsery</h3>
+                <h3 class="order__item-title">{{ request.user }}</h3>
                 <form class="order__item-form" method="POST">
                     <div class="order__items">
                         <div class="order__item-text-block">
                             <p class="order__item-text">Firstname</p>
-                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname" name="first_name">
+                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname"
+                                name="first_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Lastname</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname" name="last_name">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname"
+                                name="last_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Phone</p>
-                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone" name="phone">
+                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone"
+                                name="phone">
                         </div>
                         <div class="this-order">TIHS order FIELD</div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Address</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address" name="address">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address"
+                                name="address">
                         </div>
                         <div class="order__item-status">Product in proccess</div>
-                        <div class="order__item-buying-type">Delivery</div>
+                        <div class="order__item-buying-type">
+                            <p>Type of order</p>
+                            <select name="buying_type" id="">
+                                <option value="self" selected>Pickup</option>
+                                <option value="delivery">Delivery</option>
+                            </select>
+                        </div>
                         <p class="order__item-comment-title">
                             if you need, leave a comment, please)))
                         </p>
                         <textarea class="order__item-comment" name="comment" id="" name="comment"></textarea>
-                        <div class="order__item-date">
-                            <p class="order__item-create">Created at: 21.11.2077</p>
-                            <p class="order__item-delivery">Will be delivered: 21.11.2177</p>
+                        <div class="order__bottom">
+                            <div class="order__submit bouton">
+                                <button id="order__btn" class="order__submit" type="submit">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    BUY
+                                </inp>
+                            </div>
+                            <div class="order__bottom-info">
+                                <div class="order__bottom-info-block">
+                                    <p>Count: </p>
+                                    <p>{{ cart.total_products }}</p>
+                                </div>
+                                <div class="order__bottom-info-block">
+                                    <p>Total price</p>
+                                    <p>{{ cart.final_price }}$</p>
+                                </div>
+                            </div>
                         </div>
-                        <button class="order__submit" type="submit">BUY</but>
                     </div>
                 </form>
+            </div>
+            <div class="order__products">
+                {% for product in products %}
+                <div class="order__product">
+                    <div class="order__product-img"></div>
+                    <div class="order__product-description">
+                        <h3 class="order__product-description-title">{{ product.content_object.title }}</h3>
+                        <div class="order__product-description-price">{{ product.content_object.price }} $</div>
+                        <p class="order__product-description-text">
+                            {{ product.content_object.description|truncatechars:50 }}
+                        </p>
+                    </div>
+                    <div class="order__product-actions">
+                        <div class="bouton">
+                            <button id="1" class="order__product-actions-remove">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                REMOVE
+                            </button>
+                        </div>
+                        <input class="order__product-qty" type="text" placeholder="0" value="{{ product.qty }}">
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

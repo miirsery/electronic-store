@@ -37,6 +37,7 @@ class CartCreateOrderView(APIView):
     permissions_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
+        print(request.data)
         Order.objects.create(
             customer=request.customer,
             cart=request.cart,
@@ -51,4 +52,6 @@ class CartPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = self.request.cart.cartproduct_set.all()
+        context['cart'] = self.request.cart
+
         return context

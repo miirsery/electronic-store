@@ -49,6 +49,8 @@ class Cart(models.Model):
     def save(self, *args, **kwargs):
         self.final_price = sum(
             self.cartproduct_set.values_list('final_price', flat=True))
+        self.total_products = sum(
+            self.cartproduct_set.values_list('qty', flat=True))
         super().save(*args, **kwargs)
 
     class Meta:
@@ -88,13 +90,13 @@ class Order(models.Model):
         max_length=1024, null=True, blank=True)
     status = models.CharField(
         max_length=100, choices=STATUS_CHOICES, default=STAUTS_NEW)
-    # buying_type = models.CharField(
-    #     max_length=100, verbose_name='Тип заказа', choices=BUYING_TYPE_CHOICES)
+    buying_type = models.CharField(
+        max_length=100, verbose_name='Тип заказа', choices=BUYING_TYPE_CHOICES)
     comment = models.TextField(null=True, blank=True)
     created_at = models.DateField(auto_now=True)
 
     def __str__(self):
-        return str(self.id)
+        return f'{self.id} | {self.customer}'
 
     class Meta:
         verbose_name = 'Order'
