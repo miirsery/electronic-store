@@ -15,7 +15,7 @@
         <div class="header__wrapper">
             <div class="header-logo">
                 <a href="#" class="header__logo">
-                    Я не придумал
+                    
                 </a>
             </div>
             <nav class="header__nav">
@@ -63,31 +63,41 @@
 </header>
     <div class="container">
     <div class="order">
+        <h1 class="order__title">Order</h1>
         <div class="order__content">
-            <h1 class="order__title">Order</h1>
             <div class="order__items">
                 <h3 class="order__item-title">Miirsery</h3>
                 <form class="order__item-form" method="POST">
                     <div class="order__items">
                         <div class="order__item-text-block">
                             <p class="order__item-text">Firstname</p>
-                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname" name="first_name">
+                            <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname"
+                                name="first_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Lastname</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname" name="last_name">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname"
+                                name="last_name">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Phone</p>
-                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone" name="phone">
+                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone"
+                                name="phone">
                         </div>
                         <div class="this-order">TIHS order FIELD</div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Address</p>
-                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address" name="address">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Address"
+                                name="address">
                         </div>
                         <div class="order__item-status">Product in proccess</div>
-                        <div class="order__item-buying-type">Delivery</div>
+                        <div class="order__item-buying-type">
+                            <span>Type of order</span>
+                            <select name="Count" id="">
+                                <option value="delivery">Delivery</option>
+                                <option value="pickup">Pickup</option>
+                            </select>
+                        </div>
                         <p class="order__item-comment-title">
                             if you need, leave a comment, please)))
                         </p>
@@ -96,14 +106,73 @@
                             <p class="order__item-create">Created at: 21.11.2077</p>
                             <p class="order__item-delivery">Will be delivered: 21.11.2177</p>
                         </div>
-                        <button class="order__submit" type="submit">BUY</but>
+                        <div class="order__submit bouton">
+                            <button id="1" class="order__submit">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                BUY
+                            </button>
+                        </div>
                     </div>
                 </form>
+            </div>
+            <div class="order__products">
+                <div class="order__product">
+                    <div class="order__product-img"></div>
+                    <div class="order__product-description">
+                        <h3 class="order__product-description-title">Some laptop</h3>
+                        <div class="order__product-description-price">900 000$</div>
+                        <p class="order__product-description-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Vel molestiae officia perspiciatis mollitia libero, iure fuga unde? Nulla id quos
+                            itaque, excepturi illo sequi reiciendis minima placeat tempore commodi ipsa, laudantium
+                            suscipit atque esse veniam sed eos est hic repellendus!
+                        </p>
+                    </div>
+                    <div class="order__product-actions">
+                        <div class="bouton">
+                            <button id="1" class="order__product-actions-remove">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                REMOVE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="order__product">
+                    <div class="order__product-img"></div>
+                    <div class="order__product-description">
+                        <h3 class="order__product-description-title">Some laptop</h3>
+                        <div class="order__product-description-price">900 000$</div>
+                        <p class="order__product-description-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Vel molestiae officia perspiciatis mollitia libero, iure fuga unde? Nulla id quos
+                            itaque, excepturi illo sequi reiciendis minima placeat tempore commodi ipsa, laudantium
+                            suscipit atque esse veniam sed eos est hic repellendus!
+                        </p>
+                    </div>
+                    <div class="order__product-actions">
+                        <div class="bouton">
+                            <button id="1" class="order__product-actions-remove">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                REMOVE
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-    <footer class="footer">
+    <!-- <footer class="footer">
     <div class="container">
         <div class="footer__blocks">
             <div class="company__block">
@@ -176,7 +245,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
     <script src="../scripts/main.js"></script>
 </body>
 
