@@ -16,12 +16,20 @@ class CartAddProductView(APIView):
 
     def post(self, request, *args, **kwargs):
         product = Product.objects.get(id=request.data['id'])
-        CartProduct.objects.create(
+
+        cart_product, exists = CartProduct.objects.get_or_create(
             user=request.customer,
             cart=request.cart,
             content_type=ContentType.objects.get_for_model(product),
             object_id=request.data['id']
         )
+
+        if not exists:
+            cart_product.qty += 1
+            cart_product.save()
+
+        self.request.cart.save()
+
         return JsonResponse({'okey': 'okey'})
 
 

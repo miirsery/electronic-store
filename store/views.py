@@ -10,5 +10,4 @@ class BaseView(views.View):
         context = {
             'products': products
         }
-        print(context)
         return render(request, 'index.html', context=context)

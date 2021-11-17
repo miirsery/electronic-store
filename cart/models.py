@@ -46,14 +46,17 @@ class Cart(models.Model):
     def __str__(self):
         return f'{self.id} | {self.owner}'
 
+    def save(self, *args, **kwargs):
+        self.final_price = sum(
+            self.cartproduct_set.values_list('final_price', flat=True))
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = 'Cart'
         verbose_name_plural = 'Carts'
 
 
 class Order(models.Model):
-    '''Заказ пользователя'''
-
     STAUTS_NEW = 'new'
     STATUS_IN_PROGRESS = 'in_progress'
     STATUS_READY = 'is_ready'
@@ -63,38 +66,36 @@ class Order(models.Model):
     BUYING_TYPE_DELIVERY = 'delivery'
 
     STATUS_CHOICES = (
-        (STAUTS_NEW, 'Новый заказ'),
-        (STATUS_IN_PROGRESS, 'Заказ в обработке'),
-        (STATUS_READY, 'Заказ готов'),
-        (STATUS_COMPLITED, 'Заказ получен покупателем')
+        (STAUTS_NEW, 'New order'),
+        (STATUS_IN_PROGRESS, 'Order in processing'),
+        (STATUS_READY, 'Order is ready'),
+        (STATUS_COMPLITED, 'The order is received by the buyer')
     )
 
     BUYING_TYPE_CHOICES = (
-        (BUYING_TYPE_SELF, 'Самовывоз'),
-        (BUYING_TYPE_DELIVERY, 'Доставка')
+        (BUYING_TYPE_SELF, 'Pickup'),
+        (BUYING_TYPE_DELIVERY, 'Delivery')
     )
 
     customer = models.ForeignKey(
-        Customer, verbose_name='Покупатель', related_name='orders', on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=255, verbose_name='Имя')
-    last_name = models.CharField(max_length=255, verbose_name='Фамилия')
-    phone = models.CharField(max_length=20, verbose_name='Телефон')
+        Customer, related_name='orders', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=20)
     cart = models.ForeignKey(
-        Cart, verbose_name='Корзина', on_delete=models.CASCADE)
+        Cart, on_delete=models.CASCADE)
     address = models.CharField(
-        max_length=1024, verbose_name='Ардрес', null=True, blank=True)
+        max_length=1024, null=True, blank=True)
     status = models.CharField(
-        max_length=100, verbose_name='Статус заказа', choices=STATUS_CHOICES, default=STAUTS_NEW)
+        max_length=100, choices=STATUS_CHOICES, default=STAUTS_NEW)
     # buying_type = models.CharField(
     #     max_length=100, verbose_name='Тип заказа', choices=BUYING_TYPE_CHOICES)
-    comment = models.TextField(
-        verbose_name='Комментарий к заказу', null=True, blank=True)
-    created_at = models.DateField(
-        verbose_name='Дата создания заказа', auto_now=True)
+    comment = models.TextField(null=True, blank=True)
+    created_at = models.DateField(auto_now=True)
 
     def __str__(self):
         return str(self.id)
 
     class Meta:
-        verbose_name = 'Заказ'
-        verbose_name_plural = 'Заказы'
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
