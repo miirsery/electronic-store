@@ -92,28 +92,36 @@
                         </div>
                         <div class="order__item-status">Product in proccess</div>
                         <div class="order__item-buying-type">
-                            <span>Type of order</span>
+                            <p>Type of order</p>
                             <select name="Count" id="">
+                                <option value="pickup" selected>Pickup</option>
                                 <option value="delivery">Delivery</option>
-                                <option value="pickup">Pickup</option>
                             </select>
                         </div>
                         <p class="order__item-comment-title">
                             if you need, leave a comment, please)))
                         </p>
                         <textarea class="order__item-comment" name="comment" id="" name="comment"></textarea>
-                        <div class="order__item-date">
-                            <p class="order__item-create">Created at: 21.11.2077</p>
-                            <p class="order__item-delivery">Will be delivered: 21.11.2177</p>
-                        </div>
-                        <div class="order__submit bouton">
-                            <button id="1" class="order__submit">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                BUY
-                            </button>
+                        <div class="order__bottom">
+                            <div class="order__submit bouton">
+                                <button id="order__btn" class="order__submit">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    BUY
+                                </button>
+                            </div>
+                            <div class="order__bottom-info">
+                                <div class="order__bottom-info-block">
+                                    <p>Count: </p>
+                                    <p> {{10}}}</p>
+                                </div>
+                                <div class="order__bottom-info-block">
+                                    <p>Total price</p>
+                                    <p>{{ 100.000$ }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -141,6 +149,7 @@
                                 REMOVE
                             </button>
                         </div>
+                        <input class="order__product-qty" type="text" placeholder="0">
                     </div>
                 </div>
                 <div class="order__product">
@@ -165,14 +174,14 @@
                                 REMOVE
                             </button>
                         </div>
-
+                        <input class="order__product-qty" type="text" placeholder="0">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <!-- <footer class="footer">
+    <footer class="footer">
     <div class="container">
         <div class="footer__blocks">
             <div class="company__block">
@@ -245,7 +254,7 @@
             </div>
         </div>
     </div>
-</footer> -->
+</footer>
     <script src="../scripts/main.js"></script>
 </body>
 

@@ -31,7 +31,6 @@ document.addEventListener('click' , ({target: {id , tagName, className}}) => {
 })
 
 document.querySelector('.order__item-form').addEventListener('submit', (e) => {
-    console.log('OKEY')
     const formData = Object.fromEntries(new FormData(e.target).entries())
     handlerOrder(formData)
     e.preventDefault()
