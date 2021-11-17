@@ -11,7 +11,12 @@ class CustomerMiddleware:
     def __call__(self, request):
         if not request.user.is_authenticated:
             return self.get_response(request)
-        customer = Customer.objects.get(user=request.user)
+
+        try:
+            customer = Customer.objects.get(user=request.user)
+        except Customer.DoesNotExist:
+            return
+
         cart, _ = Cart.objects.get_or_create(owner=customer, in_order=False)
 
         request.customer = customer
