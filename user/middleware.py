@@ -15,7 +15,7 @@ class CustomerMiddleware:
         try:
             customer = Customer.objects.get(user=request.user)
         except Customer.DoesNotExist:
-            return
+            return self.get_response(request)
 
         cart, _ = Cart.objects.get_or_create(owner=customer, in_order=False)
 
