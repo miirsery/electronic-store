@@ -119,9 +119,11 @@
         position: relative
         z-index: 11
         color: #fff
-        margin-left: 2rem
+        margin-left: 2.1rem
         cursor: pointer
         opacity: 0.7
+        min-width: 2rem
+        min-height: 2rem
         transition: opacity 0.5s
         &:hover
             opacity: 1
@@ -132,7 +134,7 @@
     &__menu
         position: absolute
         top: 0rem
-        right: -8vw
+        right: -8rem
         z-index: 10
         border-radius: 10px
         background-color: rgba(85, 80, 153, 0.6)
@@ -144,18 +146,19 @@
         transform-origin: top left
         &:before
             content: ""
-            bottom: -5rem
-            right: -6.7rem
+            bottom: -4rem
+            right: -3.7rem
             position: absolute
-            width: 7vw
-            height: 27vh
+            width: 7rem
+            height: 14rem
             background-color: #332957
+            -webkit-transform: rotate(35deg)
             transform: rotate(35deg)
         &.active
             visibility: visible
             opacity: 1
             top: -0.9rem
-            right: -8vw
+            right: -11rem
             transform: scale(1)
     &__item
         margin-bottom: 2.5rem

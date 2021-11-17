@@ -33,6 +33,7 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-ttf2woff2": "^3.0.0",
     "gulp-webp": "^4.0.1",
+    "require": "^2.4.20",
     "sass": "^1.35.2",
     "sass-loader": "^10.1.0",
     "smart-grid": "^2.1.2",
@@ -41,6 +42,7 @@
     "webpack-stream": "^6.1.1"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "choices.js": "^7.0.0",
     "js-datepicker": "^5.18.0",
     "micromodal": "^0.4.6",
