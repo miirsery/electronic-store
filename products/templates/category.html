@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+</head>
+
+<body>
+    {% include 'include/header.html' %}
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="#">General</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="#">Laptops</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="#">Office laptops</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <main class="main">
+        <div class="container">
+            <div class="main__content">
+                <div class="main__content-view">
+                    <aside class="main__aside">
+                        <div>
+                            <p class="main__aside-title">Каталог</p>
+                        </div>
+                        <a class="main__aside-item" href="#">Ноутбуки</a>
+                        <a class="main__aside-item" href="#">Ноутбуки</a>
+                        <a class="main__aside-item" href="#">Ноутбуки</a>
+                        <a class="main__aside-item" href="#">Ноутбуки</a>
+                        <a class="main__aside-item" href="#">Ноутбуки</a>
+                    </aside>
+                    <div class="main__center">
+                        <div class="container">
+                            <div class="category">
+                                <h2 class="category__title">Laptops</h2>
+                                <div class="category__items">
+                                    {% csrf_token %} {% for product in products %}
+                                    <div class="product__item">
+                                      <div class="product__item-block category__item-block">
+                                        <img
+                                          src="{{ product.image.url }}"
+                                          alt="item"
+                                          class="product__item-img"
+                                        />
+                                      </div>
+                                      <div class="product__item-text">
+                                        <h3 class="product__item-title">{{ product.title }}</h3>
+                                        <p class="product__item-price">{{ product.price }}$</p>
+                                      </div>
+                                      <div class="bouton">
+                                        <button
+                                          id="{{ product.id }}"
+                                          class="product__item-add-button"
+                                        >
+                                          <span></span>
+                                          <span></span>
+                                          <span></span>
+                                          <span></span>
+                                          BUY
+                                        </button>
+                                      </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

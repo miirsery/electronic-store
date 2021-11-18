@@ -24,7 +24,7 @@
                 <p class="main__aside-title">Каталог</p>
               </div>
               {% for category in categories %}
-              <a class="main__aside-item" href="{{ category.slug }}">{{ category.title }}</a>
+              <a class="main__aside-item" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
               {% endfor %}
             </aside>
             <div class="main__center">

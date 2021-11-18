@@ -37,7 +37,6 @@ class CartCreateOrderView(APIView):
     permissions_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         Order.objects.create(
             customer=request.customer,
             cart=request.cart,
