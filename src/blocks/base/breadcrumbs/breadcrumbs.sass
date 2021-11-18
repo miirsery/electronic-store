@@ -1,0 +1,16 @@
+.breadcrumbs
+    margin-bottom: 25px
+    &__list
+        display: flex
+
+    &__item
+        position: relative
+        padding: 17px 4px
+        &::after
+            content: "/"
+            position: absolute
+            color: rgba(255, 255, 255, .3)
+    &__link
+        color: rgba(255, 255, 255, .3)
+        &:hover
+            color: rgba(255, 255, 255, .6)
