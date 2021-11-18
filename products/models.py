@@ -7,6 +7,7 @@ class Category(models.Model):
     title = models.CharField(max_length=248)
     description = models.TextField(default='Описание появится позже')
     image = models.ImageField(blank=True, null=True)
+    slug = models.SlugField()
 
     class Meta:
         verbose_name = 'Category'
@@ -34,6 +35,8 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.id} | {self.title}'

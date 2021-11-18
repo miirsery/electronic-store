@@ -42,10 +42,10 @@
             </li>
             {% if not request.user.is_authenticated %}
             <li class="profile__item">
-              <a href="/login">Авторизация</a>
+              <a href="{% url 'login' %}">Авторизация</a>
             </li>
             <li class="profile__item">
-              <a href="/registration">Регистрация</a>
+              <a href="{% url 'registration' %}">Регистрация</a>
             </li>
             {% endif %}
             <li class="profile__item">
@@ -59,7 +59,7 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="profile__item">
-              <a href="#">Выход</a>
+              <a href="{% url 'logout' %}">Выход</a>
             </li>
             {% endif %}
           </ul>

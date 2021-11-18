@@ -23,11 +23,9 @@
               <div>
                 <p class="main__aside-title">Каталог</p>
               </div>
-              <a class="main__aside-item" href="#">Ноутбуки</a>
-              <a class="main__aside-item" href="#">Ноутбуки</a>
-              <a class="main__aside-item" href="#">Ноутбуки</a>
-              <a class="main__aside-item" href="#">Ноутбуки</a>
-              <a class="main__aside-item" href="#">Ноутбуки</a>
+              {% for category in categories %}
+              <a class="main__aside-item" href="{{ category.slug }}">{{ category.title }}</a>
+              {% endfor %}
             </aside>
             <div class="main__center">
               <input
