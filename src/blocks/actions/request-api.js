@@ -1,5 +1,3 @@
-// import { Axios } from 'axios'
-// const axios = require('axios');
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);

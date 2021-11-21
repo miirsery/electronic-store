@@ -124,3 +124,49 @@
             line-height: 22px        
             position: absolute
             top: 0
+
+.reviews
+    margin-top: 3rem
+    &__wrapper
+        display: flex
+    &__title
+        font-size: 1.6rem
+        margin-bottom: 1.2rem
+    &__items
+        max-width: 30%
+    &__item
+        &-username
+            font-size: 1.3rem
+            color: #95ddff
+        &-content
+            margin-top: 0.5rem
+            font-size: 1rem
+        &:not(:last-child)
+            border-bottom: 2px solid #00fff6
+            margin-bottom: 1rem
+            padding-bottom: 1rem
+    &__feedback
+        width: 50%
+        margin: 0 auto
+    &-form
+        display: block
+        & input, textarea
+            width: 100%
+            margin-top: 0.5rem
+            resize: none
+        & textarea
+            padding: 0.5rem 1rem
+            font-size: 1rem
+            &:focus
+                outline: #95ddff solid 1.8px
+        & label
+            color: #95ddff
+            font-size: 1.3rem
+        & div:not(:last-child)
+            padding-bottom: 1rem
+        &__btn
+            margin-top: 1rem
+            text-align: center
+            & button
+                width: 60%
+                padding: 1rem
