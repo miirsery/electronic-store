@@ -69,17 +69,18 @@
             </div>
             <div class="reviews__feedback">
                 <p class="reviews__title">Write a review</p>
-                <form class="reviews-form">
+                <form class="reviews-form" method="POST">
+                    <input type="hidden" name="product_id" value="1">
                     <div>
                         <label>Review text</label>
-                        <textarea name="review__content" rows="10"></textarea>
+                        <textarea name="review_content" rows="10"></textarea>
                     </div>
                     <div>
                         <label>Send feedback anonymously?</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="is_anonymous" value="true">
                     </div>
                     <div class="reviews-form__btn bouton">
-                        <button>
+                        <button type="submit">
                             <span></span>
                             <span></span>
                             <span></span>

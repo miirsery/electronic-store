@@ -14,6 +14,16 @@ function handlerOrder(formData) {
     )
 }
 
+function handlerReviewAdd(formData) {
+    axios.post(
+        '/cart/add-review/',
+        formData,
+        {headers: {
+            'X-CSRFToken': getCookie('csrftoken')
+        }}
+    )
+}
+
 function handlerCartAddProduct(id) {
     axios.post(
         '/cart/add-product/',
@@ -29,6 +39,16 @@ document.addEventListener('click' , ({target: {id , tagName, className}}) => {
         handlerCartAddProduct(id)
     }
 })
+
+document.querySelector('.reviews-form').addEventListener('submit', (e) => {
+    const formData = Object.fromEntries(new FormData(e.target).entries())
+    if (!formData.hasOwnProperty('is_anonymous')) {
+        formData.is_anonymous = 'false'
+    }
+    handlerReviewAdd(formData)
+    e.preventDefault()
+});
+
 
 document.querySelector('.order__item-form').addEventListener('submit', (e) => {
     const formData = Object.fromEntries(new FormData(e.target).entries())
