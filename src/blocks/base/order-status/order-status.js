@@ -10,5 +10,4 @@ document.addEventListener('click', (e) => {
         statusMenu.style.opacity = (statusMenu.style.opacity == 1) ? 0 : 1
         statusMenu.style.visibility = (statusMenu.style.visibility == 'visible') ? 'hidden' : 'visible'
     }
-    console.log(e.target);
 })

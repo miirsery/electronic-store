@@ -16,7 +16,7 @@ function handlerOrder(formData) {
 
 function handlerReviewAdd(formData) {
     axios.post(
-        '/cart/add-review/',
+        '/product/add-review/',
         formData,
         {headers: {
             'X-CSRFToken': getCookie('csrftoken')
