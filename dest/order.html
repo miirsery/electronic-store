@@ -69,28 +69,33 @@
         <div class="order__content">
             <div class="order__items">
                 <h3 class="order__item-title">Miirsery</h3>
-                <form class="order__item-form" method="POST">
+                <form class="order__item-form">
                     <div class="order__items">
-                        <div class="order__item-text-block">
+                        <div class="order__item-text-block ">
                             <p class="order__item-text">Firstname</p>
                             <input type="text" class="order__item-input order__item-firstname" placeholder="Firstname"
-                                name="first_name">
+                                name="first_name" data-valid="notEmpty">
                         </div>
-                        <div class="order__item-text-block">
+                        <div class="order__item-text-block ">
                             <p class="order__item-text">Lastname</p>
                             <input type="text" class="order__item-input order__item-lastname" placeholder="Secondname"
-                                name="last_name">
+                                name="last_name" data-valid="notEmpty">
                         </div>
                         <div class="order__item-text-block">
                             <p class="order__item-text">Phone</p>
-                            <input type="number" class="order__item-input order__item-lastname" placeholder="Phone"
-                                name="phone">
+                            <input type="text" class="order__item-input order__item-lastname" placeholder="Phone"
+                                name="phone" data-valid="phone">
+                        </div>
+                        <div class="order__item-text-block ">
+                            <p class="order__item-text">E-mail</p>
+                            <input type="text" class="order__item-input order__item-email" placeholder="E-mail"
+                                name="email" data-valid="email">
                         </div>
                         <div class="this-order">TIHS order FIELD</div>
-                        <div class="order__item-text-block">
+                        <div class="order__item-text-block ">
                             <p class="order__item-text">Address</p>
                             <input type="text" class="order__item-input order__item-lastname" placeholder="Address"
-                                name="address">
+                                name="address" data-valid="notEmpty">
                         </div>
                         <div class="order__item-status">Product in proccess</div>
                         <div class="order__item-buying-type">
@@ -106,7 +111,7 @@
                         <textarea class="order__item-comment" name="comment" id="" name="comment"></textarea>
                         <div class="order__bottom">
                             <div class="order__submit bouton">
-                                <button id="order__btn" class="order__submit">
+                                <button id="order__btn" class="order__submit" type="submit">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -124,6 +129,9 @@
                                     <p>{{ 100.000$ }}</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="order__bottom-error">
+
                         </div>
                     </div>
                 </form>
