@@ -1,5 +1,3 @@
-from django.contrib.auth.models import AnonymousUser
-
 from cart.models import Cart
 from user.models import Customer
 

@@ -56,7 +56,7 @@
                                         />
                                       </div>
                                       <div class="product__item-text">
-                                        <h3 class="product__item-title">{{ product.title }}</h3>
+                                        <a class="product__item-title" href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                                         <p class="product__item-price">{{ product.price }}$</p>
                                       </div>
                                       <div class="bouton">

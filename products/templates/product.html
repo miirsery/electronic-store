@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+</head>
+
+<body>
+    {% include 'include/header.html' %}
+    <div class="container">
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="#">General</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="#">Laptops</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="#">Office laptops</a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <section class="page-product">
+    <div class="container">
+        <div class="product">
+            <div class="product__image">
+                <img src="{{ product.image.url }}" alt="">
+            </div>
+            <div class="product__content">
+                <p class="product__short-description">лучший в мире / самый мощный</p>
+                <h1 class="product__title">{{ product.title }}</h1>
+                <p class="product__price">${{product.price}} USD</p>
+                <div class="product__short-info">
+                    <p>21 reviews / 124 shopping</p>
+                </div>
+                <p class="product__description">
+                    {{ product.description }}
+                </p>
+                <div class="product__add-basket">
+                    <button>ADD TO BAG</button>
+                    <div class="product__add-input">
+                        <button class="product__add-input-decrease">-</button>
+                        <input type="text" placeholder="0">
+                        <button class="product__add-input-increase">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="specifications">
+            <p class="specifications__title">Specifications</p>
+            <ul class="specifications__items">
+                <li class="specifications__item">Да!</li>
+                <li class="specifications__item">Да!</li>
+                <li class="specifications__item">Да!</li>
+                <li class="specifications__item">Да!</li>
+                <li class="specifications__item">Да!</li>
+                <li class="specifications__item">Да!</li>
+            </ul>
+        </div>
+        <div class="reviews">
+            <div class="reviews__wrapper">
+                <div class="reviews__items">
+                    <p class="reviews__title">Latest reviews</p>
+                    {% for review in reviews %}
+                    <div class="reviews__item">
+                        <p class="reviews__item-username">{% if not review.is_anonymous %} {{ review.owner }} {% else %} Anonymous User {% endif %}</p>
+                        <p class="reviews__item-content">
+                            {{ review.text }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if is_bought %}
+                <div class="reviews__feedback">
+                    <p class="reviews__title">Write a review</p>
+                    <form class="reviews-form">
+                        <input type="hidden" name="product" value="{{ product.id }}">
+                        <div>
+                            <label>Review text</label>
+                            <textarea name="text" rows="10" placeholder="Describe your expiriance..."></textarea>
+                        </div>
+                        <div class="reviews__feedback-send">
+                            <label>Send feedback anonymously?</label>
+                            <input type="checkbox" name="is_anonymous" value="true">
+                        </div>
+                        <div class="product__stars">
+                            <input type="radio" name="rating" id="rate-5" value="5">
+                            <label for="rate-5"></label>
+                            <input type="radio" name="rating" id="rate-4" value="4">
+                            <label for="rate-4"></label>
+                            <input type="radio" name="rating" id="rate-3" value="3">
+                            <label for="rate-3"></label>
+                            <input type="radio" name="rating" id="rate-2" value="2">
+                            <label for="rate-2"></label>
+                            <input type="radio" name="rating" id="rate-1" value="1">
+                            <label for="rate-1">
+                                <!-- <img src="./images/star.svg" alt="asda"> -->
+                            </label>
+                        </div>
+                        <div class="reviews-form__btn bouton">
+                            <button>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                SEND REVIEW
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+</body>
+
+</html>
